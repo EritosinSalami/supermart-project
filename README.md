@@ -76,15 +76,15 @@ Specifically:
 ## 4. Data Workflow
 
 1. **Source:**  PostgreSQL script converted to MySQL for Supermart analytics.
-   **Format:** SQL script with `CREATE TABLE` and `INSERT` statements.
-   **Size:** 7 tables with sample data.
+- **Format:** SQL script with `CREATE TABLE` and `INSERT` statements.
+ -  **Size:** 7 tables with sample data.
 
 2. **Ingestion:** Ran the MySQL setup script in MySQL Workbench.
-   **Database:** Created a `supermart` database and executed the script to create tables and insert data.
+  - **Database:** Created a `supermart` database and executed the script to create tables and insert data.
 
 3. **Cleaning:** 
-   **Data types:** Ensured columns were correctly typed (`INT`, `VARCHAR`, `DECIMAL`, `DATE`).
-   **Foreign keys:** Added relationships to maintain data integrity.  
+  - **Data types:** Ensured columns were correctly typed (`INT`, `VARCHAR`, `DECIMAL`, `DATE`).
+  - **Foreign keys:** Added relationships to maintain data integrity.  
 
 4. **Analysis:** SQL queries for EDA, aggregations, joins, subqueries, CTEs, and business reporting.  
    - **Key analysis:** Sales performance, customer segmentation, employee performance, product trends.
@@ -100,17 +100,17 @@ Specifically:
 **Table > Key Columns** 
 - **regions** > region_id, region_name 
 - **categories** > category_id, category_name 
-**employees** > employee_id, first_name, last_name, role, region_id, hire_date, salary 
-**customers** > customer_id, first_name, last_name, email, city, country, registration_date 
-**products** > product_id, product_name, category_id, unit_price, stock_quantity 
-**orders** > order_id, customer_id, employee_id, order_date, status, shipping_city 
-**order_items** > order_item_id, order_id, product_id, quantity, unit_price, discount 
+- **employees** > employee_id, first_name, last_name, role, region_id, hire_date, salary 
+- **customers** > customer_id, first_name, last_name, email, city, country, registration_date 
+- **products** > product_id, product_name, category_id, unit_price, stock_quantity 
+- **orders** > order_id, customer_id, employee_id, order_date, status, shipping_city 
+- **order_items** > order_item_id, order_id, product_id, quantity, unit_price, discount 
 
 Table Relationships 
-regions ─────────< employees 
-categories ──────< products 
-customers ────────< orders >────── employees 
-orders ───────────< order_items >── products 
+- regions ─< employees 
+- categories ─< products 
+- customers ─< orders >─ employees 
+- orders ──< order_items >── products 
 ---
 
 ## 6. Key Insights
