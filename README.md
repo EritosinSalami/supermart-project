@@ -111,7 +111,9 @@ Database script (https://tinyurl.com/39vxvhpp)
 
 **Insight 1: Electronics Dominates Revenue**
 
-**Finding:** Electronics products (Smartphones, Laptops, Smart TVs) generate the highest revenue, with Apple iPhone 15 Pro leading sales. 
+**Finding:** Supermart revenue experienced a 38% drop in 2024 due to half of the year sales data. 
+- Electronics products (Smartphones, Laptops, Smart TVs) generate the highest revenue, with Apple iPhone 15 Pro leading sales.
+- Food & Groceries (Indomie noodles, vegetable oil 5l, Golden morn 1kg) tops the best selling products (quantity).
 
 **Recommendation:** 
 -  Since supermart's revenue is heavily dependent on high-ticket electronics, the company should secure premium inventory and negotiate exclusive distributor agreements and also, implement a "pre-order" system for new electronics launches to improve cash flow.
