@@ -5,10 +5,9 @@
 
 ## Project Type Flags
 
-- Data Cleaning
+- Database creation
 - Exploratory Data Analysis (EDA)
 - SQL Analysis
-- Data Visualization
 
 ---
 
@@ -17,7 +16,7 @@
 2. [Objectives](#2-objectives)
 3. [Project Scope & Tools](#3-project-scope--tools)
 4. [Data Workflow](#4-data-workflow)
-5. [ERD - Entity Relationship Diagram](#5-erd--entity-relationship-diagram)
+5. [Database Schema and Table Relationship](#5-Database-Schema-and-Table-Relationship)
 6. [Key Insights](#6-key-insights)
 7. [Recommendations](#7-recommendations)
 8. [Author](#8-author)
@@ -28,7 +27,8 @@
 
 SuperMart is a Nigerian retail chain operating across six regions (North, South, East, West, North Central, South-South), serving customers in 30 cities. The company sells 68 products across 8 
 categories and is staffed by 35 employees organised into three tiers: Regional Managers, Sales Managers, and Sales Reps. 
-As a Data Analyst, I have been tasked with querying the sales database to generate insights on revenue performance, employee effectiveness, customer behaviour, and inventory. 
+As a Data Analyst, I have been tasked with querying the sales database to generate insights on revenue performance, employee effectiveness, customer behaviour, and inventory.
+This project analysed transactional data from 2021 to 2024 to uncover actionable insights.
 
 **Problem Statement:** How can Olist increase revenue, improve customer retention, and reduce logistics inefficiencies?  
 Specifically:  
@@ -38,19 +38,7 @@ Specifically:
 - How do freight costs vary by region and product category, and what does that imply for profitability?
 
 
-**Approach:** I performed end‑to‑end analysis using SQL (MySQL Workbench) for data extraction, cleaning and analysis, Power BI for interactive dashboards. The project included RFM segmentation, geospatial distance calculations, and a detailed review of sales, customer behaviour, product performance, logistics, and payment patterns. All filtered to delivered orders for accurate revenue metrics.
-
-**Outcome:** 
-- **Sales & Revenue:** Identified top‑performing products and regions, discovered that revenue growth stalled in late 2018 due to no data, with R$95,235 lost to cancellations.
-- **Customer Behaviour:** Conversion rate at 10%, 90% churn rate. All customers are one‑time buyers; RFM segmentation revealed “High‑Value New” and “At Risk” segments for targeted retention.
-- **Logistics:** 93% on‑time delivery but over‑estimated delivery days caused R$10,650 freight revenue loss. Sellers concentrated in Sao Paulo, leading to more than 20-day deliveries and high freight costs in remote regions.
-- **Actionable Recommendations:** Adjust delivery estimation algorithm, launch loyalty programs, rationalize product portfolio, and recruit sellers in underserved areas.
-
   The SQL Queries used to analyze and aggregate the data for this project can be found here: (https://tinyurl.com/pufb695a)
-
-  Dashboard visuals can be found here: (https://tinyurl.com/bdh8a72h)
-
-  The interactive dashboard can be found here: [Microsoft Power BI](https://tinyurl.com/mu4t7sj9)
 
 
 ---
@@ -69,19 +57,17 @@ Specifically:
 
 | Dimension | Details |
 |-----------|---------|
-| **In Scope** | Olist Brazilian E‑commerce Dataset (public), Analysis covers Revenue, Customer behaviour, Logistics and Product category performance |
-| **Out of Scope** | Sellers' profitability, Customer demographics and Marketing spend data were excluded |
-| **Time Period** | Sep 2016 - Oct 2018 |
-| **Granularity** | order_items (each product in an order), reviews (each review).  **Order‑level:** orders (each order), payments (each payment method). **Customer‑level:** customers (for RFM and churn).  **monthly aggregates** for time‑series charts (revenue trends, growth rates). |
+| **In Scope** | **Data sources:** 7 interconnected tables (`regions`, `categories`, `employees`, `customers`, `products`, `orders`, `order_items`).|
+| **Out of Scope** | cost of goods sold data were excluded |
+| **Time Period** | Jan 2021 - June 2024 |
+| **Granularity** | order_items (each product in an order).  **Order‑level:** orders (each order). **Customer‑level:** customers (for segmentation and lifetime value). **Employee-level:** employees (for performance tracking).  **monthly aggregates** for time‑series analysis (revenue trends). |
 
 ### Tools & Technologies
 
 | Category | Tool(s) Used |
 |----------|-------------|
-| Data Storage | CSV files |
-| Data Processing | SQL, Excel |
+| Data Storage & Processing | MYSQL |
 | Analysis | SQL queries |
-| Visualization | Power BI |
 | Version Control | GitHub |
 | Documentation | Markdown |
 
@@ -89,65 +75,42 @@ Specifically:
 
 ## 4. Data Workflow
 
-Data Source
-      >
-Ingestion
-      >
-Cleaning & Transformation
-      >
-Analysis & Modelling
-      >
-Visualisation & Reporting
+1. **Source:**  PostgreSQL script converted to MySQL for Supermart analytics.
+   **Format:** SQL script with `CREATE TABLE` and `INSERT` statements.
+   **Size:** 7 tables with sample data.
 
-1. **Source:**  The Olist Brazilian E‑commerce dataset (publicly available on Kaggle).
-   **Format:** 9 interconnected CSV files.
-   **Tables used:** orders, order_items, products, customers, sellers, geolocation, order_payments, order_reviews, marketing_qualified_leads, closed_deals.  
-   **Time period:** September 2016 – October 2018.
+2. **Ingestion:** Ran the MySQL setup script in MySQL Workbench.
+   **Database:** Created a `supermart` database and executed the script to create tables and insert data.
 
-2. **Ingestion:** **CSV → SQL:** CSV files were imported into MySQL Workbench using LOAD IMPORT WIZARD.  
-                  Also loaded into Power BI via “Get Data → Text/CSV” 
+3. **Cleaning:** 
+   **Data types:** Ensured columns were correctly typed (`INT`, `VARCHAR`, `DECIMAL`, `DATE`).
+   **Foreign keys:** Added relationships to maintain data integrity.  
 
-3. **Cleaning:** **Missing dates:** Replaced `"NULL"` with `n/a` in delivery date columns.  
-   **Data types:** Converted price, freight_value, payment_value to DECIMAL; date columns to DATETIME.  
-   **Duplicates:** Removed duplicate order rows.  
-   **Null categories:** Filled empty product_category_name with `"n/a"`.  
-   **Outliers:** Flagged orders with price = 0 or negative for investigation (excluded from revenue metrics).
+4. **Analysis:** SQL queries for EDA, aggregations, joins, subqueries, CTEs, and business reporting.  
+   - **Key analysis:** Sales performance, customer segmentation, employee performance, product trends.
 
-4. **Transformation:** DeliveryDays (delivered date – purchase date)   EstDeliveryDays (estimated delivery date – purchase date)  
-   -Distance_km (Haversine formula between seller and customer geolocations)  
-   - Revenue R$ - InstallmentGroup (1 = “Full payment”, 2‑3 = “Short term”, 4‑6 = “Medium”, 7-12 = “Long”, 13+ = “Extended”)  
-   - **Aggregated tables:**  
-   - RFM table (customer‑level: Recency, Frequency, Monetary)  
-   - SalesMonthly (revenue, orders, AOV by month)  
-   - CategoryPerformance (revenue, units, freight % by product category)  
-   - **Star schema:** Built Date table related to orders on order_purchase_timestamp.
-
-5. **Analysis:** **Exploratory Data Analysis (EDA):** Distribution plots, time series (SQL + Power BI).  
-   - **RFM segmentation:** Ntile (Recency, Frequency, Monetary) to identify customer segments.
-   - **Geospatial analysis:** Distance calculation to compare estimated delivery days vs. actual distance (scatter plot).  
-   - **Statistical summaries:** Median, Ntiles, averages for delivery times, freight costs, review scores.
-   - **Business KPI measures (DAX):**  - Total Revenue, Total Orders, AOV, OnTimeDeliveryRate, Churn Rate, Revenue per Lead, etc.  
-   - **Hypothesis testing:** Proved that over‑estimated delivery days for short distances drive cancellations in São Paulo.
-
-6. **Output:** **Interactive Power BI dashboard** (4 pages) 
-  - Executive Summary (KPIs, revenue trend, top products)  
-  - Sales & Revenue (monthly / yearly, category, region)  
-  - Customer Behaviour (RFM segments, churn rate, conversion funnel)  
-  - Product Performance (price vs. volume matrix, review scores)  
-  - Logistics & Delivery (on‑time rate, map of delivery days, freight % by region/category)  
-  - Payment & Marketing (payment distribution, conversion rate by channel, revenue per lead)  
-  - **SQL scripts** (GitHub) – all queries used for extraction, cleaning, and analysis.  
-  - **Executable DAX measures** (ready to copy into any Power BI model).  
-  - **This documentation** – complete pipeline, findings, and recommendations.
+5. **Output:**  
+  - **SQL scripts**  used for analysis.  
+  - **This documentation** complete pipeline, findings, and recommendations.
 
 ---
 
-## 5. ERD - Entity Relationship Diagram
+## 5. Database Schema and Table Relationship
 
- https://tinyurl.com/bdz3svf9
+**Table > Key Columns** 
+**regions** > region_id, region_name 
+**categories** > category_id, category_name 
+**employees** > employee_id, first_name, last_name, role, region_id, hire_date, salary 
+**customers** > customer_id, first_name, last_name, email, city, country, registration_date 
+**products** > product_id, product_name, category_id, unit_price, stock_quantity 
+**orders** > order_id, customer_id, employee_id, order_date, status, shipping_city 
+**order_items** > order_item_id, order_id, product_id, quantity, unit_price, discount 
 
-**Core schema of the Olist dataset** – orders as the central fact table (99,441 records) connected to customers, payments, reviews, and order items, which join to products and sellers. Geolocation links to customers and sellers via zip codes. Marketing leads join to closed deals.
-
+Table Relationships 
+regions ─────────< employees 
+categories ──────< products 
+customers ────────< orders >────── employees 
+orders ───────────< order_items >── products 
 ---
 
 ## 6. Key Insights
