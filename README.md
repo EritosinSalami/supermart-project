@@ -106,7 +106,7 @@ Specifically:
 - **orders** > order_id, customer_id, employee_id, order_date, status, shipping_city 
 - **order_items** > order_item_id, order_id, product_id, quantity, unit_price, discount 
 
-Table Relationships 
+**Table Relationships**
 - regions ─< employees 
 - categories ─< products 
 - customers ─< orders >─ employees 
