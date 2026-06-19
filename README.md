@@ -98,8 +98,8 @@ Specifically:
 ## 5. Database Schema and Table Relationship
 
 **Table > Key Columns** 
-**regions** > region_id, region_name 
-**categories** > category_id, category_name 
+- **regions** > region_id, region_name 
+- **categories** > category_id, category_name 
 **employees** > employee_id, first_name, last_name, role, region_id, hire_date, salary 
 **customers** > customer_id, first_name, last_name, email, city, country, registration_date 
 **products** > product_id, product_name, category_id, unit_price, stock_quantity 
