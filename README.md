@@ -30,7 +30,8 @@ As a Data Analyst, I have been tasked with querying the sales database to genera
 This project analysed transactional data from 2021 to 2024 to uncover actionable insights.
 
 The SQL Queries used to analyze and aggregate the data for this project can be found here: (https://tinyurl.com/yc7fzb8h)
-Database script ()
+
+Database script (https://tinyurl.com/39vxvhpp)
 
 ---
 
@@ -121,6 +122,8 @@ Database script ()
 
 **Recommendation:**
 - Supermart should cross-promote Food & Groceries with Electronics (e.g. "Buy a laptop, get 8% off groceries") for customer acquisition and revenue maximization. Use Groceries promotions to drive traffic and Electronics promotions to drive revenue.
+  
+
 
 **Customer Behaviour**
 
@@ -142,6 +145,7 @@ Database script ()
 - Run re-engagement campaigns (e.g., "We miss you – 7% off your first order").
 
 
+
 **Employee Performance**
 
 **Insight 5: Regional Employees Drive Revenue**
@@ -150,6 +154,8 @@ Database script ()
 
 **Recommendation:**
 - Implement a "buddy system" where high-performing employees mentor underperforming regions and offer incentives.
+
+
 
 **Operations & Logistics Insights**
 
@@ -163,7 +169,7 @@ Database script ()
 
 ---
 
-## 8. Author
+## 7. Author
 
 **[Eritosin Salami]**
 [Data Analyst]
