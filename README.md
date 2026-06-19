@@ -103,7 +103,7 @@ The SQL Queries used to analyze and aggregate the data for this project can be f
 - orders ──< order_items >── products 
 ---
 
-## 6. Key Insights
+## 6. Key Insights & Recommendations
 
 **Sales & product**
 
@@ -115,13 +115,16 @@ The SQL Queries used to analyze and aggregate the data for this project can be f
 -  Since supermart's revenue is heavily dependent on high-ticket electronics, the company should secure premium inventory and negotiate exclusive distributor agreements and also, implement a "pre-order" system for new electronics launches to improve cash flow.
 
 **Insight 2: Category-Level Volume vs. Value Trade-Off**
+
 **Finding:** Food & Groceries has the highest order volume but lower average revenue per order compared to Electronics. Electronics has fewer orders but significantly higher revenue per order.
 
 **Recommendation:**
 - Supermart should cross-promote Food & Groceries with Electronics (e.g. "Buy a laptop, get 8% off groceries") for customer acquisition and revenue maximization. Use Groceries promotions to drive traffic and Electronics promotions to drive revenue.
 
 **Customer Behaviour**
+
 **Insight 3: VIP Customers Drive Revenue**
+
 **Finding:** A small percentage of VIP customers (lifetime revenue > ₦500,000 and 5+ delivered orders) account for a significant portion of total revenue. Supermart's revenue is concentrated among a few high-value customers. Losing even one VIP customer could have a noticeable impact on revenue.
 
 **Recommendation:**
@@ -129,6 +132,7 @@ The SQL Queries used to analyze and aggregate the data for this project can be f
 - Assign dedicated account managers to VIP customers.
 
 **Insight 4: High One-Time Buyer Rate & Inactive Customers**
+
 **Finding:** Supermart invests heavily in customer acquisition but fails to retain some potential customers beyond their first purchase.
 
 **Recommendation:**
@@ -138,14 +142,18 @@ The SQL Queries used to analyze and aggregate the data for this project can be f
 
 
 **Employee Performance**
+
 **Insight 5: Regional Employees Drive Revenue**
+
 **Finding:** Employees in the North and South regions significantly outperform those in other regions in terms of total revenue generated. Seun Okeke (sales rep) from the north tops the list.
 
 **Recommendation:**
 - Implement a "buddy system" where high-performing employees mentor underperforming regions and offer incentives.
 
 **Operations & Logistics Insights**
+
 **Insight 6: Order Status Distribution**
+
 **Finding:** Delivered orders dominate (81.90%), but a notable percentage of orders are still pending or cancelled. Improvements in fulfilment could reduce pending orders and recover lost revenue.
 
 **Recommendation:**
