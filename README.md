@@ -1,4 +1,4 @@
-# [Olist E-Commerce Performance Analysis]
+# [Supermart Analytics]
 > *Uncovering the Drivers of Revenue, Customer Churn, and Logistics Inefficiencies to Drive Data‑Informed Business Decisions.*
 
 ---
@@ -26,7 +26,9 @@
 
 ## 1. Project Overview
 
-Olist is a Brazilian marketplace connecting sellers to customers across multiple product categories. As an online platform, it faces common e‑commerce challenges: understanding revenue drivers, reducing customer churn, optimizing delivery logistics, and identifying profitable product segments. Part of he analysis of this project revealed that the over-estimation of the delivery days prompted some of the customers to cancel their orders which caused the business a potential profit. This project was motivated by the need to turn raw transactional data into actionable business intelligence.
+SuperMart is a Nigerian retail chain operating across six regions (North, South, East, West, North Central, South-South), serving customers in 30 cities. The company sells 68 products across 8 
+categories and is staffed by 35 employees organised into three tiers: Regional Managers, Sales Managers, and Sales Reps. 
+As a Data Analyst, I have been tasked with querying the sales database to generate insights on revenue performance, employee effectiveness, customer behaviour, and inventory. 
 
 **Problem Statement:** How can Olist increase revenue, improve customer retention, and reduce logistics inefficiencies?  
 Specifically:  
