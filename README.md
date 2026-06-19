@@ -1,5 +1,5 @@
 # [Supermart Analytics]
-> *Uncovering the Drivers of Revenue, Customer Churn, and Logistics Inefficiencies to Drive Data‑Informed Business Decisions.*
+> *Querying the sales database to generate insights.*
 
 ---
 
