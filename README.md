@@ -36,7 +36,7 @@ The SQL Queries used to analyze and aggregate the data for this project can be f
 ## 2. Objectives
 
 - To identify sales & product performance
-- To evaluate customer behaviour and operational effectiveness
+- To evaluate customer behaviour and operational efficiency
 - To know employees' effectiveness
 
 ---
@@ -106,7 +106,9 @@ The SQL Queries used to analyze and aggregate the data for this project can be f
 ## 6. Key Insights
 
 **Sales & product**
+
 **Insight 1: Electronics Dominates Revenue**
+
 **Finding:** Electronics products (Smartphones, Laptops, Smart TVs) generate the highest revenue, with Apple iPhone 15 Pro leading sales. 
 
 **Recommendation:** 
